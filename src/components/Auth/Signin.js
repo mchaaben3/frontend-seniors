@@ -21,13 +21,16 @@ const Signin = () => {
   const [email, setemail] = useState('');
   const [password, setpassword] = useState('');
   const dispatch = useDispatch();
-
+  const navigate = useNavigate();
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await dispatch(login(email, password));
+    dispatch(login(email, password)).then((res) => {
+      if (res.payload.status === 200) {
+        navigate('/');
+      }
+    });
   };
 
-  const navigate = useNavigate();
   return (
     <Container>
       <MainC>
