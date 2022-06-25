@@ -25,9 +25,7 @@ const Signin = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     dispatch(login(email, password)).then((res) => {
-      if (res.payload.status === 200) {
-        navigate('/');
-      }
+      navigate('/');
     });
   };
 
