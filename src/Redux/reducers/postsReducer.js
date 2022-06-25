@@ -5,6 +5,9 @@ import {
   CREATE_POST_FAIL,
   CREATE_POST_REQUEST,
   CREATE_POST_SUCCESS,
+  GET_POSTS_BY_USER_ID_FAIL,
+  GET_POSTS_BY_USER_ID_REQUEST,
+  GET_POSTS_BY_USER_ID_SUCCESS,
   GET_POST_FAIL,
   GET_POST_REQUEST,
   GET_POST_SUCCESS,
@@ -72,6 +75,28 @@ export const getPostReducer = (state = { post: {} }, action) => {
         error: action.payload,
       };
 
+    default:
+      return state;
+  }
+};
+//get all posts by user id reducer
+export const postsByUserIdReducer = (state = { posts: {} }, action) => {
+  switch (action.type) {
+    case GET_POSTS_BY_USER_ID_REQUEST:
+      return {
+        loading: true,
+        posts: {},
+      };
+    case GET_POSTS_BY_USER_ID_SUCCESS:
+      return {
+        loading: false,
+        posts: action.payload,
+      };
+    case GET_POSTS_BY_USER_ID_FAIL:
+      return {
+        loading: false,
+        error: action.payload,
+      };
     default:
       return state;
   }

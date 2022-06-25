@@ -5,6 +5,7 @@ import Signin from './components/Auth/Signin';
 import Signup from './components/Auth/Signup';
 import Main from './components/Main/Main';
 import Posts from './components/Posts/Posts';
+import Profile from './components/Profile/Profile';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
           <Route path="/signin" element={<Signin />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/posts" element={<Posts />} />
+          <Route path="/profile/:id" element={<Profile />} />
         </Routes>
       </Router>
     </>

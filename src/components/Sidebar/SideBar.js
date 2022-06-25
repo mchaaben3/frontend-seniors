@@ -38,7 +38,7 @@ const SideBar = () => {
         <span>
           {' '}
           <i className="uil uil-bell">
-            <small className="notifications-count">+2</small>
+            <small className="notifications-count">2</small>
           </i>
         </span>
         <h4
@@ -93,16 +93,17 @@ const SideBar = () => {
         <h4>Timeline</h4>
       </a>
 
-      <a
+      <Link
         className={`menu-item ${isActive.activeIndex === 4 ? `active` : ``}`}
         onClick={() => handleClick(4)}
+        to={'/profile'}
       >
         <span>
           {' '}
           <i className="uil uil-user"></i>
         </span>
         <h4>Profile</h4>
-      </a>
+      </Link>
 
       <a
         className={`menu-item ${isActive.activeIndex === 5 ? `active` : ``}`}

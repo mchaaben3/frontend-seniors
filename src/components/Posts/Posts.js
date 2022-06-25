@@ -5,7 +5,7 @@ import Loader from '../layouts/Loader';
 import CreatePost from './CreatePost';
 import Feed from './Feed';
 
-const Posts = () => {
+const Posts = ({ user }) => {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getPosts());
@@ -13,8 +13,8 @@ const Posts = () => {
   const { loading, error, posts } = useSelector((state) => state.posts);
 
   return (
-    <div className="middle">
-      <CreatePost />
+    <>
+      <CreatePost user={user} />
       <div className="feeds">
         {loading ? (
           <Loader />
@@ -29,11 +29,14 @@ const Posts = () => {
               user={post.user}
               createdAt={post.createdAt}
               content={post.content}
+              image={post.image}
+              likes={post.likes}
+              userConnected={user}
             />
           ))
         )}
       </div>
-    </div>
+    </>
   );
 };
 

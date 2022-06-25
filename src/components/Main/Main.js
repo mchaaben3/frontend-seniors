@@ -1,11 +1,14 @@
 import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { loadUser } from '../../Redux/actions/userAction';
 import store from '../../Redux/store';
+import FriendRequests from '../Friends/FriendRequests';
+import Groups from '../Groups/Groups';
 import Navbar from '../Nav/Navbar';
 import Posts from '../Posts/Posts';
-import Profile from '../Profile/Profile';
+import Card from '../Profile/Card';
 import SideBar from '../Sidebar/SideBar';
+import Stories from '../stories/Stories';
 
 const Main = () => {
   useEffect(() => {
@@ -15,19 +18,25 @@ const Main = () => {
     fetchUser();
   }, []);
 
-  const dispatch = useDispatch();
   const { user } = useSelector((state) => state.user);
 
   return (
     <>
-      <Navbar user={user} />
+      <Navbar />
       <main>
         <div className="container">
           <div className="left">
-            <Profile user={user} />
+            <Card user={user} />
             <SideBar />
           </div>
-          <Posts />
+          <div className="middle">
+            <Stories user={user} />
+            <Posts user={user} />
+          </div>
+          <div className="right">
+            <Groups />
+            <FriendRequests />
+          </div>
         </div>
       </main>
     </>

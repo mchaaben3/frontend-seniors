@@ -1,5 +1,9 @@
 {
   "name": "frontend",
+  "author": {
+    "name": "Mahdi Chaaben",
+    "email": "mchaaben3@gmail.com"
+  },
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -16,6 +20,7 @@
     "redux": "^4.2.0",
     "redux-devtools-extension": "^2.13.9",
     "redux-thunk": "^2.4.1",
+    "socket.io-client": "^4.5.1",
     "styled-components": "^5.3.5",
     "web-vitals": "^2.1.4"
   },
@@ -46,6 +51,5 @@
   "devDependencies": {
     "tailwindcss": "^3.1.2"
   },
-  "proxy": "https://seniors-app.herokuapp.com"
-
+  "proxy": "https://seniors-app.herokuapp.com/"
 }
